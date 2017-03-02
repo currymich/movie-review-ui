@@ -1,10 +1,10 @@
 angular.module('movieReviewApp', ['ui.router'])
   .config(AppRouter)
-  // .config(authInterceptor)
+  .config(authInterceptor)
 
-  // function authInterceptor($httpProvider) {
-  //   $httpProvider.interceptors.push('AuthInterceptor')
-  // }
+  function authInterceptor($httpProvider) {
+    $httpProvider.interceptors.push('AuthInterceptor')
+  }
 
   function AppRouter($stateProvider, $urlRouterProvider) {
 
