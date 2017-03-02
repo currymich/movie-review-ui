@@ -1,0 +1,25 @@
+{
+  "name": "movie-review-ui",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/matt-martinez/movie-review-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/matt-martinez/movie-review-ui/issues"
+  },
+  "homepage": "https://github.com/matt-martinez/movie-review-ui#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "morgan": "^1.8.1"
+  }
+}
