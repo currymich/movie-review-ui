@@ -12,6 +12,12 @@ angular.module('movieReviewApp', ['ui.router'])
 
     $stateProvider
     .state('index', {
-      url: '/'
+      url: '/',
+      templateUrl: '/partials/home.html'
+    })
+    .state('signup', {
+      url: '/signup',
+      templateUrl: '/partials/signup.html',
+      controller: 'AuthController as auth'
     })
   }
