@@ -6,7 +6,7 @@ angular.module('movieReviewApp', ['ui.router'])
     $httpProvider.interceptors.push('AuthInterceptor')
   }
 
-  function AppRouter($stateProvider, $urlRouterProvider) {
+  function AppRouter($stateProvider, $urlRouterProvider, $locationProvider) {
 
     $urlRouterProvider.otherwise('/');
 
@@ -19,5 +19,10 @@ angular.module('movieReviewApp', ['ui.router'])
       url: '/signup',
       templateUrl: '/partials/signup.html',
       controller: 'AuthController as auth'
+    })
+
+    $locationProvider.html5Mode({
+      enabled: true,
+      requireBase: false
     })
   }
