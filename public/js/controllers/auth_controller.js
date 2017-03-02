@@ -5,6 +5,10 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
   function signup(userPass) {
     $http.post(`${server}/users`, { user: userPass })
       .then(function(response) {
+        console.log(response.data)
+        AuthTokenFactory.setToken(response.data.token)
+
+        $scope.$emit('userLoggedIn', response.data.user);
         $state.go('index');
       });
   }
@@ -16,7 +20,6 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
         AuthTokenFactory.setToken(response.data.token)
 
         $scope.$emit('userLoggedIn', response.data.user);
-        $rootScope.$emit('fetchData', response.data.user);
         // $state.go('index');
       });
   }
