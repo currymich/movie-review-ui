@@ -24,7 +24,11 @@
   <body ng-controller="HomeController as home">
     <nav ng-controller="AuthController as auth">
       <h1>Movie Reviews</h1>
-      <form ng-submit="auth.login(userPass)">
+      <ul>
+        <li>Account</li>
+        <li ng-if="home.currentUser" ng-click="auth.logout()">Logout</li>
+      </ul>
+      <form ng-if="!home.currentUser" ng-submit="auth.login(userPass)">
         <input type="text" placeholder="Email/Username" ng-model="userPass.email">
         <input type="password" placeholder="Password" ng-model="userPass.password">
         <input type="submit">
