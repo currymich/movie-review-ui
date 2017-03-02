@@ -5,7 +5,7 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
   function signup(userPass) {
     $http.post(`${server}/users`, { user: userPass })
       .then(function(response) {
-        $state.go('home');
+        $state.go('index');
       });
   }
 
