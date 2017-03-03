@@ -1,0 +1,9 @@
+<h1>Home Partial</h1>
+
+<div class="" ng-controller="ReviewController as rev">
+  <div class="" ng-repeat="review in rev.allReviews">
+    <h3>{{review.title}}</h3>
+    <h4>Rating: {{review.rating}}</h4>
+    <p>{{review.comments}}</p>
+  </div>
+</div>
