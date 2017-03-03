@@ -25,15 +25,12 @@ function ReviewController($scope, $http) {
       });
   }
 
-  // create
-  // function createReview() {
-  //   $http.post(``)
-  // }
+  function newReview(id){
+    $http.post(`${server}/movies/${id}/reviews`, {review: reviewData})
+    .then(function(response){
+      console.log(response)
+    })
+  }
 
-  // edit
-
-  // delete
-
-  // self.movieReviews = movieReviews;
   self.getAllReviews = getAllReviews;
 }
