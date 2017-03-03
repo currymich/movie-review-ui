@@ -56,10 +56,11 @@
 
         <br>
 
-        <h3>Did you mean..?</h3>
-        <img ng-src={{movie.result1.Poster}}>
-        <img ng-src={{movie.result2.Poster}}>
-        <img ng-src={{movie.result3.Poster}}>
+        <h3 ng-show="movie.result2 && movie.result2.Poster != 'N/A'">Did you mean..?</h3>
+        <img ng-show="movie.result2.Poster != 'N/A'" ng-src={{movie.result2.Poster}}>
+        <img ng-show="movie.result3.Poster != 'N/A'"
+        ng-src={{movie.result3.Poster}}>
+        <img ng-show="movie.result4.Poster != 'N/A'" ng-src={{movie.result4.Poster}}>
       </div>
     </div>
 
