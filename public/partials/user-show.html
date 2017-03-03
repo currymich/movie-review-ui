@@ -1,0 +1,17 @@
+<h2>Welcome {{home.currentUser.name}}</h2>
+
+<form ng-submit="auth.updateUser(userPass)">
+  <div class="">
+    <input type="text" placeholder="{{home.currentUser.name}}" ng-model="userPass.name">
+  </div>
+  <div class="">
+    <input type="text" placeholder="{{home.currentUser.username}}" ng-model="userPass.username">
+  </div>
+  <div class="">
+    <input type="text" placeholder="{{home.currentUser.email}}" ng-model="userPass.email">
+  </div>
+  <!-- <div class="">
+    <input type="password" placeholder="Confirm Password" ng-model="userPass.password">
+  </div> -->
+    <button>Submit</button>
+</form>
