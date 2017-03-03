@@ -3,8 +3,12 @@ function MovieController($scope, $http) {
   server = 'http://localhost:3000'
 
 
-  function searchMovie(){
-    $http.get(`${server}/movies/search?title=${self.title}`)
+  function searchMovie(title){
+    self.bigResult = undefined
+    self.result2 = undefined
+    self.result3 = undefined
+    self.result4 = undefined
+    $http.get(`${server}/movies/search?title=${title}`)
     .then(function(response){
       self.bigResult = response.data.large
       self.result2 = response.data.small.Search[1]
