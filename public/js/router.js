@@ -20,6 +20,11 @@ angular.module('movieReviewApp', ['ui.router'])
       templateUrl: '/partials/signup.html',
       controller: 'AuthController as auth'
     })
+    .state('user-show', {
+      url: '/user-show',
+      templateUrl: '/partials/user-show.html',
+      controller: 'AuthController as auth'
+    })
 
     $locationProvider.html5Mode({
       enabled: true,
