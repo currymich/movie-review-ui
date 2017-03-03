@@ -1,1 +1,17 @@
 <h2>Welcome {{home.currentUser.name}}</h2>
+
+<form ng-submit="home.currentUser">
+  <div class="">
+    <input type="text" value="{{home.currentUser.name}}">
+  </div>
+  <div class="">
+    <input type="text" value="{{home.currentUser.username}}">
+  </div>
+  <div class="">
+    <input type="text" value="{{home.currentUser.email}}">
+  </div>
+  <div class="">
+    <input type="text" value="{{home.currentUser.password}}">
+  </div>
+    <button>Submit</button>
+</form>
