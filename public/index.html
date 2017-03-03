@@ -37,6 +37,13 @@
     </nav>
 
 
+    <div ng-controller="MovieController as movie">
+      <form ng-submit="movie.searchMovie()">
+        <input ng-model="movie.title" placeholder="Movie title">
+        <button type="submit">Search!</button>
+      </form>
+    </div>
+
     <ui-view>
     </ui-view>
 
