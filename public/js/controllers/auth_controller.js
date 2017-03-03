@@ -24,6 +24,17 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
       });
   }
 
+  function updateUser(userPass) {
+    console.log("Hit Update Route")
+    $http.put(`${server}/users/edit`, { user: userPass })
+      .then(function(response) {
+        console.log(response.data)
+        AuthTokenFactory.setToken(response.data.token)
+
+        $scope.$emit('userUpdated', response.data.user);
+      });
+  }
+
   function logout() {
     AuthTokenFactory.setToken()
 
@@ -31,6 +42,7 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
     // $state.go('index');
   }
 
+  this.updateUser = updateUser;
   this.signup = signup;
   this.login = login;
   this.logout = logout;

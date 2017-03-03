@@ -5,6 +5,10 @@ function HomeController($scope, $http) {
     self.currentUser = data;
   });
 
+  $scope.$on('userUpdated', function(event, data) {
+    self.currentUser = data;
+  });
+
   $scope.$on('userLoggedOut', function(event, data) {
     self.currentUser = null;
   });
