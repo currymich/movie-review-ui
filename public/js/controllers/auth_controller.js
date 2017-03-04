@@ -1,7 +1,7 @@
 function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
   var self    = this;
   // var server  = 'http://localhost:3000';
-  server = 'https://movie-review-api.herokuapp.com/'
+  server = 'https://movie-review-api.herokuapp.com'
 
   function signup(userPass) {
     $http.post(`${server}/users`, { user: userPass })
