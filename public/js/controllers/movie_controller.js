@@ -1,7 +1,7 @@
 function MovieController($scope, $http) {
   var self = this;
-  server = 'http://localhost:3000'
-
+  // server = 'http://localhost:3000'
+  server = 'https://movie-review-api.herokuapp.com/'
 
   function searchMovie(title){
     self.bigResult = undefined

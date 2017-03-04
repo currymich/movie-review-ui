@@ -1,6 +1,7 @@
 function ReviewController($scope, $http) {
   var self = this;
-  server = 'http://localhost:3000'
+  // server = 'http://localhost:3000'
+  server = 'https://movie-review-api.herokuapp.com/'
   self.allReviews = [];
   // self.movieReviews = [];
 
