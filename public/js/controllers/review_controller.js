@@ -36,6 +36,27 @@ function ReviewController($scope, $http) {
     })
   }
 
+  function editReview(review) {
+    console.log("Hit Edit Review Route");
+    console.log(review.id)
+    $http.put(`${server}/reviews/` + review.id, { review: { title: self.title, rating: self.rating, comments: self.comments }})
+      .then(function(response) {
+        console.log(review)
+        console.log(response)
+        // getMovieReviews(imdbID);
+      });
+  }
+
+  function deleteReview(review, currentUser) {
+    console.log("Hit Delete Review Route");
+    $http.delete(`${server}/reviews/` + review.id)
+      .then(function(response) {
+        getAllReviews();
+      });
+  }
+
+  self.deleteReview = deleteReview;
+  self.editReview = editReview;
   self.addReview = addReview;
   self.getAllReviews = getAllReviews;
 }
