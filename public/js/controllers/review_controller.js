@@ -44,9 +44,18 @@ function ReviewController($scope, $http) {
         console.log(review)
         console.log(response)
         // getMovieReviews(imdbID);
-      })
+      });
   }
 
+  function deleteReview(review, currentUser) {
+    console.log("Hit Delete Review Route");
+    $http.delete(`${server}/reviews/` + review.id)
+      .then(function(response) {
+        getAllReviews();
+      });
+  }
+
+  self.deleteReview = deleteReview;
   self.editReview = editReview;
   self.addReview = addReview;
   self.getAllReviews = getAllReviews;
