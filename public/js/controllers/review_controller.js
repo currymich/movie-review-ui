@@ -39,10 +39,11 @@ function ReviewController($scope, $http) {
   function editReview(review) {
     console.log("Hit Edit Review Route");
     console.log(review.id)
-    $http.put(`${server}/reviews/` + review.id, { review: { title: self.title, rating: self.rating, comments: self.comments }})
+    $http.put(`${server}/reviews/` + review.id, { review: { title: self.updatedReview.title, rating: self.updatedReview.rating, comments: self.updatedReview.comments }})
       .then(function(response) {
         console.log(review)
         console.log(response)
+        self.updatedReview = '';
         // getMovieReviews(imdbID);
       });
   }
