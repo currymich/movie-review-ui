@@ -32,13 +32,13 @@ function ReviewController($scope, $http) {
     .then(function(response){
       console.log(response.data)
       self.id = (response.data.movie.id)
-    })
 
-    $http.post(`${server}/movies/${self.id}/reviews`, { review: { title: self.newReview.title, rating: self.newReview.rating, comments: self.newReview.comments, user_id: currentUser.id, movie_id: self.id }})
-    .then(function(response){
-      console.log(response);
-      // getMovieReviews(imdbID);
-      // self.newReview = {title: '', rating: '', comments: ''};
+      $http.post(`${server}/movies/${self.id}/reviews`, { review: { title: self.newReview.title, rating: self.newReview.rating, comments: self.newReview.comments, user_id: currentUser.id, movie_id: self.id }})
+      .then(function(response){
+        console.log(response);
+        // getMovieReviews(imdbID);
+        // self.newReview = {title: '', rating: '', comments: ''};
+      })
     })
   }
 
