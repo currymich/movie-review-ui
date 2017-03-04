@@ -32,5 +32,16 @@ function ReviewController($scope, $http) {
     })
   }
 
+  self.newReview = {title: '', rating: '', comments: ''};
+
+  function addReview(){
+    // $http.post(`${server}`)
+    self.allReviews.push({
+      review: { title: self.newReview.title, rating: self.newReview.rating, comments: self.newReview.comments }
+    })
+    self.newReview = '';
+  };
+
+  self.addReview = addReview;
   self.getAllReviews = getAllReviews;
 }
