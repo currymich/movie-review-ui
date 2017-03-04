@@ -17,7 +17,7 @@ angular.module('movieReviewApp', ['ui.router'])
       controller: 'ReviewController as rev'
     })
     .state('signup', {
-      url: '/signup',
+      url: '/users',
       templateUrl: '/partials/signup.html',
       controller: 'AuthController as auth'
     })
