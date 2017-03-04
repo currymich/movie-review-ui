@@ -16,8 +16,8 @@ function ReviewController($scope, $http) {
   getAllReviews();
 
   // review show
-  function getMovieReviews() {
-    $http.get(`${server}/movies/${id}/reviews`)
+  function getMovieReviews(imdbID) {
+    $http.get(`${server}/movies/${imdbID}/reviews`)
       .then(function(reviewResponse) {
         console.log(reviewResponse)
         console.log(reviewResponse.data)
@@ -25,12 +25,17 @@ function ReviewController($scope, $http) {
       });
   }
 
-  function newReview(id){
-    $http.post(`${server}/movies/${id}/reviews`, {review: reviewData})
+  self.newReview = {title: '', rating: '', comments: ''};
+
+  function addReview(currentUser, imdbID){
+    $http.post(`${server}/movies/${imdbID}/reviews`, { review: { title: self.newReview.title, rating: self.newReview.rating, comments: self.newReview.comments, user_id: currentUser.id }})
     .then(function(response){
-      console.log(response)
+      console.log(response);
+      getMovieReviews(imdbID);
+      self.newReview = '';
     })
   }
 
+  self.addReview = addReview;
   self.getAllReviews = getAllReviews;
 }

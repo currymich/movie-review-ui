@@ -13,7 +13,8 @@ angular.module('movieReviewApp', ['ui.router'])
     $stateProvider
     .state('index', {
       url: '/',
-      templateUrl: '/partials/home.html'
+      templateUrl: '/partials/home.html',
+      controller: 'ReviewController as rev'
     })
     .state('signup', {
       url: '/signup',

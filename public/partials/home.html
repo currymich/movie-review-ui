@@ -1,12 +1,15 @@
 <h1>Home Partial</h1>
 
-<div class="" ng-controller="ReviewController as rev">
+<div class="">
   <div class="" ng-repeat="review in rev.allReviews">
-    <h3>{{review.title}}</h3>
+    <h3>Review Title: {{review.title}}</h3>
     <h4>Rating: {{review.rating}}</h4>
-    <p>{{review.comments}}</p>
+    <p>Comments: {{review.comments}}</p>
   </div>
+
 </div>
+
+<br><br>
 
 <div ng-controller="MovieController as movie">
 
@@ -31,8 +34,18 @@
     <h3>Sorry, no results found</h3>
   </div>
 
-    <br>
+  <form ng-submit="rev.addReview(home.currentUser, movie.bigResult.imdbID)">
+    <input type="text" placeholder="Your Review Title" ng-model="rev.newReview.title">
+    <input type="text" placeholder="Your Review Rating" ng-model="rev.newReview.rating">
+    <input type="text" placeholder="Your Review Comments" ng-model="rev.newReview.comments">
+    <button>Submit</button>
+  </form>
 
+  <p ng-if="rev.newReview.title">About to name review: <strong>{{rev.newReview.title}}</strong></p>
+  <p ng-if="rev.newReview.rating">About rate review: <strong>{{rev.newReview.rating}}</strong></p>
+  <p ng-if="rev.newReview.comments">About to add comments: <strong>{{rev.newReview.comments}}</strong></p>
+
+    <br>
 
   <div ng-show="movie.result2 && movie.result2.Poster != 'N/A'">
     <h3>Did you mean..?</h3>
