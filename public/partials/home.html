@@ -5,6 +5,13 @@
     <h3>Review Title: {{review.title}}</h3>
     <h4>Rating: {{review.rating}}</h4>
     <p>Comments: {{review.comments}}</p>
+    <button ng-click="rev.editReview(review)">Edit</button>
+    <form ng-if="" ng-submit="rev.addReview(home.currentUser, movie.bigResult.imdbID)">
+      <input type="text" placeholder="Your Review Title" ng-model="rev.newReview.title">
+      <input type="text" placeholder="Your Review Rating" ng-model="rev.newReview.rating">
+      <input type="text" placeholder="Your Review Comments" ng-model="rev.newReview.comments">
+      <button>Submit</button>
+    </form>
   </div>
 
 </div>
