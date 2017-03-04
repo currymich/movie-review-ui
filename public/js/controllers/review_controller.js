@@ -41,6 +41,7 @@ function ReviewController($scope, $http) {
     console.log(review.id)
     $http.put(`${server}/reviews/` + review.id, { review: { title: self.title, rating: self.rating, comments: self.comments }})
       .then(function(response) {
+        console.log(review)
         console.log(response)
         // getMovieReviews(imdbID);
       })
