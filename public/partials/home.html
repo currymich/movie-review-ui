@@ -34,7 +34,7 @@
     <h3>Sorry, no results found</h3>
   </div>
 
-  <form ng-submit="rev.addReview()">
+  <form ng-submit="rev.addReview(home.currentUser, movie.bigResult.imdbID)">
     <input type="text" placeholder="Your Review Title" ng-model="rev.newReview.title">
     <input type="text" placeholder="Your Review Rating" ng-model="rev.newReview.rating">
     <input type="text" placeholder="Your Review Comments" ng-model="rev.newReview.comments">
