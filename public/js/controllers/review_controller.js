@@ -16,14 +16,14 @@ function ReviewController($scope, $http) {
   getAllReviews();
 
   // review show
-  function getMovieReviews(imdbID) {
-    $http.get(`${server}/movies/${imdbID}/reviews`)
-      .then(function(reviewResponse) {
-        console.log(reviewResponse)
-        console.log(reviewResponse.data)
-        self.movieReviews = reviewResponse.data;
-      });
-  }
+  // function getMovieReviews(imdbID) {
+  //   $http.get(`${server}/movies/${imdbID}/reviews`)
+  //     .then(function(reviewResponse) {
+  //       console.log(reviewResponse)
+  //       console.log(reviewResponse.data)
+  //       self.movieReviews = reviewResponse.data;
+  //     });
+  // }
 
   self.newReview = {title: '', rating: '', comments: ''};
 
@@ -45,11 +45,12 @@ function ReviewController($scope, $http) {
   function editReview(review) {
     console.log("Hit Edit Review Route");
     console.log(review.id)
-    $http.put(`${server}/reviews/` + review.id, { review: { title: self.title, rating: self.rating, comments: self.comments }})
+    $http.put(`${server}/reviews/` + review.id, { review: { title: self.updatedReview.title, rating: self.updatedReview.rating, comments: self.updatedReview.comments }})
       .then(function(response) {
         console.log(review)
         console.log(response)
-        // getMovieReviews(imdbID);
+        self.updatedReview = '';
+        getAllReviews();
       });
   }
 

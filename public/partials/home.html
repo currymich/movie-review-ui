@@ -5,11 +5,11 @@
     <h3>Review Title: {{review.title}}</h3>
     <h4>Rating: {{review.rating}}</h4>
     <p>Comments: {{review.comments}}</p>
-    <button ng-click="editForm=true">Edit</button><button ng-click="rev.deleteReview(review.id)">Delete</button>
+    <button ng-click="editForm=true">Edit</button><button ng-click="rev.deleteReview(review, home.currentUser)">Delete</button>
     <form ng-show="editForm" ng-submit="rev.editReview(review)">
-      <input type="text" placeholder="{{review.title}}" ng-model="rev.editReview.title">
-      <input type="text" placeholder="{{review.rating}}" ng-model="rev.editeview.rating">
-      <input type="text" placeholder="{{review.comments}}" ng-model="rev.editReview.comments">
+      <input type="text" placeholder="{{review.title}}" ng-model="rev.updatedReview.title">
+      <input type="text" placeholder="{{review.rating}}" ng-model="rev.updatedReview.rating">
+      <input type="text" placeholder="{{review.comments}}" ng-model="rev.updatedReview.comments">
       <button ng-click="editForm=false">Submit</button>
     </form>
   </div>
