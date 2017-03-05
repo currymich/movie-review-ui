@@ -1,0 +1,19 @@
+/* Nav Bar */
+nav {
+  border: 1px solid black;
+}
+
+ul {
+  list-style-type: none;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
+li {
+  display: inline-block;
+}
+
+li > h1 {
+  font-size: 3em;
+}
