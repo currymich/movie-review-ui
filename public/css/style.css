@@ -1,0 +1,13 @@
+/* Nav Bar */
+nav {
+  border: 1px solid black;
+}
+
+h1  {
+  text-align: center;
+  font-size: 3em;
+}
+
+nav > ul {
+  float: right;
+}
