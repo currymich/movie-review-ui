@@ -3,11 +3,17 @@ nav {
   border: 1px solid black;
 }
 
-h1  {
+ul {
+  list-style-type: none;
   text-align: center;
-  font-size: 3em;
+  padding: 0px;
+  margin: 0px;
 }
 
-nav > ul {
-  float: right;
+li {
+  display: inline-block;
+}
+
+li > h1 {
+  font-size: 3em;
 }
