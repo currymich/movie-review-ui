@@ -7,7 +7,7 @@ function ReviewController($scope, $http) {
   });
 
   $scope.$on('newLogin', function(event, currentUser) {
-    getUserReviews(currentUser)
+    getAllReviews()
   })
 
 
