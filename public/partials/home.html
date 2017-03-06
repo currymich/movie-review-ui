@@ -1,9 +1,9 @@
-<h1>Home Partial</h1>
+<h1>Recently Added Reviews</h1>
 
 <div class="">
-  <div class="" ng-repeat="review in rev.allReviews">
-    <h3>Review Title: {{review.title}}</h3>
-    <h4>Rating: {{review.rating}}</h4>
+  <div class="" ng-repeat="review in rev.allReviews | orderBy:'-'">
+    <h3>{{review.title}}</h3>
+    <h4>User Rating: {{review.rating}}</h4>
     <p>Comments: {{review.comments}}</p>
     <button ng-click="editForm=true">Edit</button><button ng-click="rev.deleteReview(review, home.currentUser)">Delete</button>
     <form ng-show="editForm" ng-submit="rev.editReview(review)">
@@ -13,56 +13,4 @@
       <button ng-click="editForm=false">Submit</button>
     </form>
   </div>
-
-</div>
-
-<br><br>
-
-<div ng-controller="MovieController as movie">
-
-  <div>
-    <form ng-submit="movie.searchMovie(title)">
-      <input ng-model="title" placeholder="Movie title">
-      <button type="submit">Search!</button>
-    </form>
-  </div>
-
-  <br><br>
-
-  <div ng-show="movie.bigResult.Response == 'True'">
-    <img ng-src={{movie.bigResult.Poster}}>
-    <h3>{{movie.bigResult.Title}}</h3>
-    <p>{{movie.bigResult.Genre}}</p>
-    <p>{{movie.bigResult.Rated}}</p>
-    <p>{{movie.bigResult.imdbRating}}</p>
-  </div>
-
-  <div ng-show="movie.bigResult.Response == 'False'">
-    <h3>Sorry, no results found</h3>
-  </div>
-
-  <form ng-submit="rev.addReview(home.currentUser, movie.bigResult)">
-    <input type="text" placeholder="Your Review Title" ng-model="rev.newReview.title">
-    <input type="text" placeholder="Your Review Rating" ng-model="rev.newReview.rating">
-    <input type="text" placeholder="Your Review Comments" ng-model="rev.newReview.comments">
-    <button>Submit</button>
-  </form>
-
-  <p ng-if="rev.newReview.title">About to name review: <strong>{{rev.newReview.title}}</strong></p>
-  <p ng-if="rev.newReview.rating">About rate review: <strong>{{rev.newReview.rating}}</strong></p>
-  <p ng-if="rev.newReview.comments">About to add comments: <strong>{{rev.newReview.comments}}</strong></p>
-
-    <br>
-
-  <div ng-show="movie.result2 && movie.result2.Poster != 'N/A'">
-    <h3>Did you mean..?</h3>
-    <img ng-src={{movie.result2.Poster}}
-    ng-click=movie.searchMovie(movie.result2.Title)>
-    <img ng-show="movie.result3"
-    ng-src={{movie.result3.Poster}}
-    ng-click=movie.searchMovie(movie.result3.Title)>
-    <img ng-show="movie.result3" ng-src={{movie.result4.Poster}}
-    ng-click=movie.searchMovie(movie.result4.Title)>
-  </div>
-
 </div>

@@ -2,7 +2,7 @@
 var express     = require('express');
 var logger      = require('morgan');
 var app         = express();
-var port        = 4000 || process.env.PORT;
+var port        = process.env.PORT || 4000;
 
 // MIDDLEWARE
 app.use(express.static('public'));
