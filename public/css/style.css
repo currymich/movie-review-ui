@@ -46,6 +46,12 @@ main {
   color: #D9411E;
 }
 
+h1 > img {
+  height: 100px;
+  width: 125px;
+  vertical-align: middle;
+}
+
 /* Nav Bar */
 nav > ul {
   height: 50px;
@@ -59,7 +65,7 @@ nav > ul > li {
   list-style-type: none;
   padding: 1em 2em;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 .login {
