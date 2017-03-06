@@ -25,7 +25,7 @@
   <body ng-controller="HomeController as home">
     <nav ng-controller="AuthController as auth">
       <ul>
-        <li><h1 ui-sref="index">Movie Reviews</h1></li>
+        <li><h1 id="appTitle" ui-sref="index">Movie Reviews</h1></li>
         <li ui-sref="movie">Search Movies</li>
         <li ng-if="home.currentUser" ui-sref="user-show">Account</li>
         <li ng-if="!home.currentUser" ui-sref="signup">Sign-Up!</li>

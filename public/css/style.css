@@ -1,10 +1,10 @@
 /* Main */
 
-h1, h2 {
+h1 {
   font-family: 'Raleway', sans-serif;
 }
 
-h1 {
+#appTitle {
   font-size: 3em;
 }
 
@@ -27,3 +27,5 @@ ul {
 li {
   display: inline-block;
 }
+
+/* Home Partial */
