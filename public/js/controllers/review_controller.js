@@ -1,6 +1,7 @@
 function ReviewController($scope, $http) {
   var self = this;
-  server = 'http://localhost:3000'
+  // server = 'http://localhost:3000'
+  var server = 'https://movie-review-api.herokuapp.com'
 
   $scope.$on('newSearch', function(event, imdbID) {
     getMovieReviews(imdbID)
