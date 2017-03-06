@@ -1,17 +1,45 @@
-<h2>Welcome {{home.currentUser.name}}</h2>
+<div ng-controller="ReviewController as rev">
 
-<form ng-submit="auth.updateUser(userPass)">
-  <div class="">
-    <input type="text" placeholder="{{home.currentUser.name}}" ng-model="userPass.name">
+  <h2>Welcome {{home.currentUser.name}}</h2>
+
+  <form ng-submit="auth.updateUser(userPass)">
+    <div class="">
+      <input type="text" placeholder="{{home.currentUser.name}}" ng-model="userPass.name">
+    </div>
+    <div class="">
+      <input type="text" placeholder="{{home.currentUser.username}}" ng-model="userPass.username">
+    </div>
+    <div class="">
+      <input type="text" placeholder="{{home.currentUser.email}}" ng-model="userPass.email">
+    </div>
+    <!-- <div class="">
+      <input type="password" placeholder="Confirm Password" ng-model="userPass.password">
+    </div> -->
+      <button>Submit</button>
+  </form>
+
+  <div class="movie_reviews_container">
+
+    <h2>Posted Reviews</h2>
+
+    <div class="review" ng-repeat="review in rev.userReviews | orderBy: '-updated_at' | limitTo: 4">
+
+      <h3>{{review.title}}</h3>
+      <p>User Rating: {{review.rating}}</p>
+      <p>Comments: {{review.comments}}</p>
+
+      <div>
+        <button ng-click="editForm=true">Edit</button><button ng-click="rev.deleteReview(review, home.currentUser)">Delete</button>
+        <form ng-show="editForm" ng-submit="rev.editReview(review, home.currentUser)">
+          <input type="text" placeholder="{{review.title}}" ng-model="rev.updatedReview.title">
+          <input type="text" placeholder="{{review.rating}}" ng-model="rev.updatedReview.rating">
+          <input type="text" placeholder="{{review.comments}}" ng-model="rev.updatedReview.comments">
+          <button ng-click="editForm=false">Submit</button>
+        </form>
+      </div>
+
+    </div>
+
   </div>
-  <div class="">
-    <input type="text" placeholder="{{home.currentUser.username}}" ng-model="userPass.username">
-  </div>
-  <div class="">
-    <input type="text" placeholder="{{home.currentUser.email}}" ng-model="userPass.email">
-  </div>
-  <!-- <div class="">
-    <input type="password" placeholder="Confirm Password" ng-model="userPass.password">
-  </div> -->
-    <button>Submit</button>
-</form>
+
+</div>
