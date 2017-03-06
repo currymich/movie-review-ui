@@ -1,3 +1,17 @@
+/* Main */
+
+h1, h2 {
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
 /* Nav Bar */
 nav {
   border: 1px solid black;
@@ -12,8 +26,4 @@ ul {
 
 li {
   display: inline-block;
-}
-
-li > h1 {
-  font-size: 3em;
 }

@@ -18,18 +18,20 @@
     <!-- App -->
     <script type="text/javascript" src="js/app.js"></script>
     <!-- Styling -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body ng-controller="HomeController as home">
     <nav ng-controller="AuthController as auth">
       <ul>
-        <li ui-sref="movie">Search Movies</li>
         <li><h1 ui-sref="index">Movie Reviews</h1></li>
+        <li ui-sref="movie">Search Movies</li>
         <li ng-if="home.currentUser" ui-sref="user-show">Account</li>
         <li ng-if="!home.currentUser" ui-sref="signup">Sign-Up!</li>
         <li ng-if="home.currentUser" ng-click="auth.logout()">Logout</li>
         <li><form ng-if="!home.currentUser" ng-submit="auth.login(userPass)">
+          <label>Login: </label>
           <input type="text" placeholder="Email or Username" ng-model="userPass.email_username">
           <input type="password" placeholder="Password" ng-model="userPass.password">
           <button>Submit</button>

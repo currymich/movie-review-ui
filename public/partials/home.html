@@ -1,8 +1,8 @@
-<h2>Recently Added Reviews</h1>
+<h2>Recently Added Reviews</h2>
 
 <div class="">
   <div class="" ng-repeat="review in rev.allReviews">
-    <h3>Review Title: {{review.title}}</h3>
+    <h3>{{review.title}}</h3>
     <h4>Rating: {{review.rating}}</h4>
     <p>Comments: {{review.comments}}</p>
     <button ng-click="editForm=true">Edit</button><button ng-click="rev.deleteReview(review, home.currentUser)">Delete</button>
