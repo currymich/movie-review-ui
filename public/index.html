@@ -25,10 +25,10 @@
   <body ng-controller="HomeController as home">
     <nav ng-controller="AuthController as auth">
       <ul>
-        <li ui-sref="movie">Search Movies</li>
-        <li ng-if="home.currentUser" ui-sref="user-show">Account</li>
-        <li ng-if="!home.currentUser" ui-sref="signup">Sign-Up!</li>
-        <li ng-if="home.currentUser" ng-click="auth.logout()">Logout</li>
+        <li class="click" ui-sref="movie">Search Movies</li>
+        <li class="click" ng-if="home.currentUser" ui-sref="user-show">Account</li>
+        <li class="click" ng-if="!home.currentUser" ui-sref="signup">Sign-Up!</li>
+        <li class="click" ng-if="home.currentUser" ng-click="auth.logout()">Logout</li>
         <li><form ng-if="!home.currentUser" ng-submit="auth.login(userPass)">
           <label>Login: </label>
           <input type="text" placeholder="Email or Username" ng-model="userPass.email_username">
@@ -39,9 +39,8 @@
     </nav>
     <main>
 
-      <h1 id="appTitle" ui-sref="index">Cinematiques</h1>
-      <h3 class="appSubtitles">Cinema has finally met its greatest critics.</h3>
-      <!-- <h3 class="appSubtitles">Normal People, honest reviews.</h3> -->
+      <h1 class="click" id="appTitle" ui-sref="index">Cinematiques</h1>
+      <h3 class="appSubtitles">Cinema has finally met its greatest critic. You.</h3>
       <br>
 
       <ui-view>

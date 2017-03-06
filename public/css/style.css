@@ -13,7 +13,8 @@ h1 {
 #appTitle {
   font-size: 4em;
   text-align: center;
-  margin: 0px;
+  margin: auto;
+  width: 415px;
 }
 
 .appSubtitles {
@@ -32,6 +33,10 @@ main {
   background: #CF4858;*/
 }
 
+.click {
+  cursor: pointer;
+}
+
 /* Nav Bar */
 nav > ul {
   height: 50px;
@@ -48,7 +53,23 @@ nav > ul > li {
   padding: 1em 2em;
 }
 
-/* Home Partial */
+/* Signup */
+.signup {
+  text-align: center;
+}
+
+.signup input {
+  width: 300px;
+  height: 30px;
+  font-size: 15px;
+  text-align: center;
+  margin-bottom: 5px;
+}
+
+.signupButton {
+  font-size: 15px;
+  padding: 5px;
+}
 
 /* Movie Partial */
 .movie {

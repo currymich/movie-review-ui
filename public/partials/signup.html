@@ -1,17 +1,19 @@
-<h2>Signup Partial</h2>
+<div class="signup">
+  <h2>Account Sign Up</h2>
 
-<form ng-submit="auth.signup(userPass)">
-  <div class="">
-    <input type="text" placeholder="Name" ng-model="userPass.name">
-  </div>
-  <div class="">
-    <input type="text" placeholder="Username" ng-model="userPass.username">
-  </div>
-  <div class="">
-    <input type="text" placeholder="Email" ng-model="userPass.email">
-  </div>
-  <div class="">
-    <input type="password" placeholder="Password" ng-model="userPass.password">
-  </div>
-  <button>Submit</button>
-</form>
+  <form ng-submit="auth.signup(userPass)">
+    <div class="">
+      <input type="text" placeholder="Name" ng-model="userPass.name">
+    </div>
+    <div class="">
+      <input type="text" placeholder="Username" ng-model="userPass.username">
+    </div>
+    <div class="">
+      <input type="text" placeholder="Email" ng-model="userPass.email">
+    </div>
+    <div class="">
+      <input type="password" placeholder="Password" ng-model="userPass.password">
+    </div>
+    <button class="signupButton">Submit</button>
+  </form>
+</div>
