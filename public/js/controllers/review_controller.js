@@ -10,6 +10,7 @@ function ReviewController($scope, $http) {
     getUserReviews(currentUser)
   })
 
+
   // index
   function getAllReviews() {
     $http.get(`${server}/reviews`)
@@ -21,6 +22,7 @@ function ReviewController($scope, $http) {
         self.allReviews.forEach(function(review){
           review.poster = self.posters[review.id]
         })
+
       });
   }
   getAllReviews();
@@ -50,11 +52,13 @@ function ReviewController($scope, $http) {
       .then(function(response){
         getMovieReviews(movie.imdbID);
         self.newReview = {title: '', rating: '', comments: ''};
+
       })
     })
   }
 
   function editReview(review, currentUser) {
+
     $http.put(`${server}/reviews/` + review.id, { review: { title: self.updatedReview.title, rating: self.updatedReview.rating, comments: self.updatedReview.comments }})
       .then(function(response) {
         self.updatedReview = '';
