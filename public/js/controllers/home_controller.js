@@ -3,6 +3,7 @@ function HomeController($scope, $http) {
 
   $scope.$on('userLoggedIn', function(event, data) {
     self.currentUser = data;
+    $scope.$broadcast('newLogin', self.currentUser)
   });
 
   $scope.$on('userUpdated', function(event, data) {
