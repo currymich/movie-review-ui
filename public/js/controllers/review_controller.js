@@ -2,7 +2,6 @@ function ReviewController($scope, $http) {
   var self = this;
   server = 'http://localhost:3000'
   self.allReviews = [];
-  // self.movieReviews = [];
 
   // index
   function getAllReviews() {
@@ -14,16 +13,6 @@ function ReviewController($scope, $http) {
       });
   }
   getAllReviews();
-
-  // review show
-  // function getMovieReviews(imdbID) {
-  //   $http.get(`${server}/movies/${imdbID}/reviews`)
-  //     .then(function(reviewResponse) {
-  //       console.log(reviewResponse)
-  //       console.log(reviewResponse.data)
-  //       self.movieReviews = reviewResponse.data;
-  //     });
-  // }
 
   self.newReview = {title: '', rating: '', comments: ''};
 

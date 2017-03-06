@@ -1,48 +1,57 @@
-<div ng-controller="ReviewController as rev">
-
-  <div>
-    <form ng-submit="movie.searchMovie(title)">
-      <input ng-model="title" placeholder="Movie title">
-      <button type="submit">Search!</button>
-    </form>
-  </div>
-
-  <br><br>
-
-  <div ng-show="movie.bigResult.Response == 'True'">
-    <img ng-src={{movie.bigResult.Poster}}>
-    <h3>{{movie.bigResult.Title}}</h3>
-    <p>{{movie.bigResult.Genre}}</p>
-    <p>{{movie.bigResult.Rated}}</p>
-    <p>{{movie.bigResult.imdbRating}}</p>
-  </div>
-
-  <div ng-show="movie.bigResult.Response == 'False'">
-    <h3>Sorry, no results found</h3>
-  </div>
-
-  <form ng-submit="rev.addReview(home.currentUser, movie.bigResult)">
-    <input type="text" placeholder="Your Review Title" ng-model="rev.newReview.title">
-    <input type="text" placeholder="Your Review Rating" ng-model="rev.newReview.rating">
-    <input type="text" placeholder="Your Review Comments" ng-model="rev.newReview.comments">
-    <button>Submit</button>
-  </form>
-
-  <p ng-if="rev.newReview.title">About to name review: <strong>{{rev.newReview.title}}</strong></p>
-  <p ng-if="rev.newReview.rating">About rate review: <strong>{{rev.newReview.rating}}</strong></p>
-  <p ng-if="rev.newReview.comments">About to add comments: <strong>{{rev.newReview.comments}}</strong></p>
-
+<div class="movie" ng-controller="ReviewController as rev">
+  <div class="movieSearch">
+    <h1>Movie Search</h1>
+    <div>
+      <form ng-submit="movie.searchMovie(title)">
+        <input ng-model="title" placeholder="Movie title">
+        <button type="submit" ng-click="reviews=true">Search!</button>
+      </form>
+    </div>
     <br>
+    <div ng-show="movie.bigResult.Response == 'True'">
+      <h2>{{movie.bigResult.Title}} ({{movie.bigResult.Year}})</h2>
+      <img ng-src={{movie.bigResult.Poster}}>
+      <p>Genre: {{movie.bigResult.Genre}}</p>
+      <p>Rating: {{movie.bigResult.Rated}}</p>
+      <p>ImdbRating: {{movie.bigResult.imdbRating}}</p>
+      <p>Metascore: {{movie.bigResult.Metascore}}</p>
+      <p>Plot: {{movie.bigResult.Plot}}</p>
+    </div>
 
-  <div ng-show="movie.result2 && movie.result2.Poster != 'N/A'">
-    <h3>Did you mean..?</h3>
-    <img ng-src={{movie.result2.Poster}}
-    ng-click=movie.searchMovie(movie.result2.Title)>
-    <img ng-show="movie.result3"
-    ng-src={{movie.result3.Poster}}
-    ng-click=movie.searchMovie(movie.result3.Title)>
-    <img ng-show="movie.result3" ng-src={{movie.result4.Poster}}
-    ng-click=movie.searchMovie(movie.result4.Title)>
+    <div ng-show="movie.bigResult.Response == 'False'">
+      <h3>Sorry, no results found</h3>
+    </div>
+
+    <div ng-show="movie.result2 && movie.result2.Poster != 'N/A'">
+      <h3>Did you mean..?</h3>
+      <img ng-src={{movie.result2.Poster}}
+      ng-click=movie.searchMovie(movie.result2.Title)>
+      <img ng-show="movie.result3"
+      ng-src={{movie.result3.Poster}}
+      ng-click=movie.searchMovie(movie.result3.Title)>
+      <img ng-show="movie.result3" ng-src={{movie.result4.Poster}}
+      ng-click=movie.searchMovie(movie.result4.Title)>
+    </div>
   </div>
+  <div class="movieReview" ng-show="reviews">
+    <h1>Add A Review:</h1>
+    <form ng-submit="rev.addReview(home.currentUser, movie.bigResult)">
+      <input type="text" placeholder="Your Review Title" ng-model="rev.newReview.title">
+      <input type="text" placeholder="Your Review Rating" ng-model="rev.newReview.rating">
+      <input type="text" placeholder="Your Review Comments" ng-model="rev.newReview.comments">
+      <button>Submit</button>
+    </form>
 
+    <p ng-if="rev.newReview.title">Review Title: <strong>{{rev.newReview.title}}</strong></p>
+    <p ng-if="rev.newReview.rating">Review Rating: <strong>{{rev.newReview.rating}}</strong></p>
+    <p ng-if="rev.newReview.comments">Comments: <strong>{{rev.newReview.comments}}</strong></p>
+
+    <div class="specificReviews" ng-repeat="reviews in rev.allReviews | orderBy: {{imdbID}}">
+      <p>{{reviews.title}}</p>
+      <p>User Rating: {{reviews.rating}}</p>
+      <p>Comments: {{reviews.rating}}</p>
+    </div>
+    <h2>Posted Reviews</h2>
+
+  </div>
 </div>
