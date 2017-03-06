@@ -14,6 +14,12 @@ function MovieController($scope, $http) {
       self.result2 = response.data.small.Search[1]
       self.result3 = response.data.small.Search[2]
       self.result4 = response.data.small.Search[3]
+
+      return response.data.large.imdbID
+    })
+    .then(function(imdbID){
+      $scope.$broadcast('newSearch', imdbID);
+
     })
   }
 

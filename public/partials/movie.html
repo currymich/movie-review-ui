@@ -46,12 +46,16 @@
     <p ng-if="rev.newReview.rating">Review Rating: <strong>{{rev.newReview.rating}}</strong></p>
     <p ng-if="rev.newReview.comments">Comments: <strong>{{rev.newReview.comments}}</strong></p>
 
-    <div class="specificReviews" ng-repeat="reviews in rev.allReviews | orderBy: {{imdbID}}">
-      <p>{{reviews.title}}</p>
-      <p>User Rating: {{reviews.rating}}</p>
-      <p>Comments: {{reviews.rating}}</p>
+
+    <div class="movie_reviews_container">
+      <h2>Posted Reviews</h2>
+      <div class="review" ng-repeat="review in rev.movieReviews | orderBy: '-updated_at' | limitTo: 4" ng-show="review.imdbID == movie.bigResult.imdbID">
+        <h3>{{review.title}}</h3>
+        <p>User Rating: {{review.rating}}</p>
+        <p>Comments: {{review.comments}}</p>
+      </div>
     </div>
-    <h2>Posted Reviews</h2>
+
 
   </div>
 </div>

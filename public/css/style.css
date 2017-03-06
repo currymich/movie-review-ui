@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 /* Main */
 body {
   font-family: 'Open Sans', sans-serif;
@@ -42,6 +46,12 @@ main {
   color: #D9411E;
 }
 
+h1 > img {
+  height: 100px;
+  width: 125px;
+  vertical-align: middle;
+}
+
 /* Nav Bar */
 nav > ul {
   height: 50px;
@@ -55,7 +65,7 @@ nav > ul > li {
   list-style-type: none;
   padding: 1em 2em;
   font-weight: bold;
-  font-size: 1em;
+  font-size: 1.1em;
 }
 
 .login {
@@ -93,4 +103,43 @@ nav > ul > li {
 
 .movieReview {
   width: 40%;
+}
+
+.recent_reviews_container {
+  width: 40%;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.review {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: space-around;
+  margin: 30px 0;
+  padding: 10px;
+  border: 1px solid #aaa;
+  border-radius: 3px;
+  background-color: #ddd;
+}
+
+.movie_reviews_container {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.movie_reviews_container .review{
+  width: 90%;
+  margin: 30px auto;
+  flex-flow: row wrap;
+}
+
+.review > div {
+  width: 50%;
+  overflow: hidden;
+}
+
+.review img {
+  height: 250px;
 }

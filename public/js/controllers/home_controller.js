@@ -3,6 +3,7 @@ function HomeController($scope, $http) {
 
   $scope.$on('userLoggedIn', function(event, data) {
     self.currentUser = data;
+    $scope.$broadcast('newLogin', self.currentUser)
   });
 
   $scope.$on('userUpdated', function(event, data) {
@@ -12,5 +13,10 @@ function HomeController($scope, $http) {
   $scope.$on('userLoggedOut', function(event, data) {
     self.currentUser = null;
   });
+
+  $scope.$on('userPageLoaded', function(event){
+    console.log('load finished')
+    $scope.$broadcast('newLogin', self.currentUser)
+  })
 
 }

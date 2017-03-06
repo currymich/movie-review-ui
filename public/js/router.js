@@ -32,8 +32,4 @@ angular.module('movieReviewApp', ['ui.router'])
       controller: 'MovieController as movie'
     })
 
-    $locationProvider.html5Mode({
-      enabled: true,
-      requireBase: false
-    })
   }
