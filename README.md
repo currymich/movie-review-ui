@@ -45,16 +45,16 @@ As a user I want to:
 - (Reach Goal) Select movies as favorites and view them on my user page
 
 ## Wireframes
-Home Page:
+### Home Page:
 ![Home Page](/public/images/home.jpg)
 
-Movie-Review Show:
+### Movie-Review Show:
 ![Movie-Review Page](/public/images/movie.jpg)
 
-User Version 1 Show:
+### User Version 1 Show:
 ![User Show Version 1](/public/images/user-v1.jpg)
 
-User Version 2 Show:
+### User Version 2 Show:
 ![User Show Version 2](/public/images/user-v2.jpg)
 
 ## Models
