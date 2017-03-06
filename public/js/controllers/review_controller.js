@@ -3,7 +3,6 @@ function ReviewController($scope, $http) {
   // server = 'http://localhost:3000'
   var server = 'https://movie-review-api.herokuapp.com'
   self.allReviews = [];
-  // self.movieReviews = [];
 
   // index
   function getAllReviews() {
@@ -13,16 +12,6 @@ function ReviewController($scope, $http) {
       });
   }
   getAllReviews();
-
-  // review show
-  // function getMovieReviews(imdbID) {
-  //   $http.get(`${server}/movies/${imdbID}/reviews`)
-  //     .then(function(reviewResponse) {
-  //       console.log(reviewResponse)
-  //       console.log(reviewResponse.data)
-  //       self.movieReviews = reviewResponse.data;
-  //     });
-  // }
 
   self.newReview = {title: '', rating: '', comments: ''};
 

@@ -29,6 +29,7 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
         AuthTokenFactory.setToken(response.data.token)
 
         $scope.$emit('userUpdated', response.data.user);
+        $state.go('user-show');
       });
   }
 
@@ -36,7 +37,7 @@ function AuthController($http, $state, $scope, $rootScope, AuthTokenFactory) {
     AuthTokenFactory.setToken()
 
     $scope.$emit('userLoggedOut');
-    // $state.go('index');
+    $state.go('index');
   }
 
   this.updateUser = updateUser;
