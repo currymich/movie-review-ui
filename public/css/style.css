@@ -11,14 +11,19 @@ h1 {
 }
 
 #appTitle {
-  font-size: 3em;
+  font-size: 4em;
+  text-align: center;
+  margin: 0px;
+}
+
+.appSubtitles {
   text-align: center;
 }
 
 main, nav {
   /*border: 1px solid black; */
   margin: 0 auto;
-  width: 85%;
+  width: 90%;
 }
 
 main {
@@ -44,3 +49,17 @@ nav > ul > li {
 }
 
 /* Home Partial */
+
+/* Movie Partial */
+.movie {
+  display: flex;
+}
+
+.movieSearch {
+  order: -1;
+  width: 60%;
+}
+
+.movieReview {
+  width: 40%;
+}
