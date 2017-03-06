@@ -1,4 +1,10 @@
 /* Main */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #FAF9F4;
+  display: flex;
+  flex-direction: column;
+}
 
 h1 {
   font-family: 'Raleway', sans-serif;
@@ -6,26 +12,35 @@ h1 {
 
 #appTitle {
   font-size: 3em;
+  text-align: center;
 }
 
-body {
-  font-family: 'Open Sans', sans-serif;
+main, nav {
+  /*border: 1px solid black; */
+  margin: 0 auto;
+  width: 85%;
+}
+
+main {
+  padding: 20px;
+  /*margin-top: 10px;
+  background: #CF4858;*/
 }
 
 /* Nav Bar */
-nav {
-  border: 1px solid black;
-}
-
-ul {
-  list-style-type: none;
+nav > ul {
+  height: 50px;
+  width: auto;
   text-align: center;
-  padding: 0px;
-  margin: 0px;
+  margin: auto;
+  background: #4D505B;
+  color: white;
 }
 
-li {
+nav > ul > li {
   display: inline-block;
+  list-style-type: none;
+  padding: 1em 2em;
 }
 
 /* Home Partial */

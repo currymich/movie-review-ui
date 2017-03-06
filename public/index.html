@@ -25,7 +25,6 @@
   <body ng-controller="HomeController as home">
     <nav ng-controller="AuthController as auth">
       <ul>
-        <li><h1 id="appTitle" ui-sref="index">Movie Reviews</h1></li>
         <li ui-sref="movie">Search Movies</li>
         <li ng-if="home.currentUser" ui-sref="user-show">Account</li>
         <li ng-if="!home.currentUser" ui-sref="signup">Sign-Up!</li>
@@ -38,10 +37,13 @@
         </form></li>
       </ul>
     </nav>
+    <main>
 
+      <h1 id="appTitle" ui-sref="index">Movie Reviews</h1>
 
-    <ui-view>
-    </ui-view>
+      <ui-view>
+      </ui-view>
 
+    </main>
   </body>
 </html>
