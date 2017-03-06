@@ -14,4 +14,9 @@ function HomeController($scope, $http) {
     self.currentUser = null;
   });
 
+  $scope.$on('userPageLoaded', function(event){
+    console.log('load finished')
+    $scope.$broadcast('newLogin', self.currentUser)
+  })
+
 }

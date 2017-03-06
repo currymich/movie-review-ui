@@ -22,7 +22,7 @@
 
     <h2>Posted Reviews</h2>
 
-    <div class="review" ng-repeat="review in rev.userReviews | orderBy: '-updated_at' | limitTo: 4">
+    <div class="review" ng-repeat="review in rev.allReviews | orderBy: '-updated_at'" ng-show="review.user_id == home.currentUser.id">
 
       <h3>{{review.title}}</h3>
       <p>User Rating: {{review.rating}}</p>

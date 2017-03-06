@@ -32,12 +32,12 @@ function ReviewController($scope, $http) {
     })
   }
 
-  function getUserReviews(currentUser){
-    $http.get(`${server}/users/${currentUser.id}/reviews`)
-    .then(function(response){
-      self.userReviews = response.data.reviews
-    })
-  }
+  // function getUserReviews(currentUser){
+  //   $http.get(`${server}/users/${currentUser.id}/reviews`)
+  //   .then(function(response){
+  //      self.userReviews = response.data.reviews
+  //   })
+  // }
 
   self.newReview = {title: '', rating: '', comments: ''};
 
@@ -58,14 +58,14 @@ function ReviewController($scope, $http) {
     $http.put(`${server}/reviews/` + review.id, { review: { title: self.updatedReview.title, rating: self.updatedReview.rating, comments: self.updatedReview.comments }})
       .then(function(response) {
         self.updatedReview = '';
-        getUserReviews(currentUser)
+        getAllReviews();
       });
   }
 
   function deleteReview(review, currentUser) {
     $http.delete(`${server}/reviews/` + review.id)
       .then(function(response) {
-        getUserReviews(currentUser);
+        getAllReviews();
       });
   }
 
