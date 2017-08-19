@@ -45,15 +45,23 @@ function ReviewController($scope, $http) {
   self.newReview = {title: '', rating: '', comments: ''};
 
   function addReview(currentUser, movie){
-    $http.post(`${server}/movies`, {movie: movie, imdbID: movie.imdbID})
+    $http.post(`${server}/movies`, {movie: {
+      Title: movie.title,
+      Poster: movie.poster_path,
+      imdbID: movie.imdb_id,
+      Genre: movie.genres[0].name,
+      imdbRating: movie.vote_average,
+      Plot: movie.overview,
+      Year: movie.release_date
+    }, imdbID: movie.imdb_id})
     .then(function(response){
-      self.id = (response.data.movie.id)
+      var movie = (response.data.movie)
 
-      $http.post(`${server}/movies/${self.id}/reviews`, { review: { title: self.newReview.title, rating: self.newReview.rating, comments: self.newReview.comments, user_id: currentUser.id, movie_id: self.id, imdbID: movie.imdbID }})
+      $http.post(`${server}/movies/${movie.id}/reviews`, { review: { title: self.newReview.title, rating: self.newReview.rating, comments: self.newReview.comments, user_id: currentUser.id, movie_id: movie.id}})
       .then(function(response){
-        getMovieReviews(movie.imdbID);
+        console.log('new review response', response);
+        getMovieReviews(response.data.movie.imdbID);
         self.newReview = {title: '', rating: '', comments: ''};
-
       })
     })
   }

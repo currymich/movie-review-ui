@@ -105,6 +105,14 @@ nav > ul > li {
   width: 40%;
 }
 
+.main_result img {
+  width: 480px;
+}
+
+.secondary_results img {
+  width: 200px;
+}
+
 .recent_reviews_container {
   width: 40%;
   max-width: 800px;

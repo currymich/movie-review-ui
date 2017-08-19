@@ -8,29 +8,27 @@
       </form>
     </div>
     <br>
-    <div ng-show="movie.bigResult.Response == 'True'">
-      <h2>{{movie.bigResult.Title}} ({{movie.bigResult.Year}})</h2>
-      <img ng-src={{movie.bigResult.Poster}}>
-      <p>Genre: {{movie.bigResult.Genre}}</p>
-      <p>Rating: {{movie.bigResult.Rated}}</p>
-      <p>ImdbRating: {{movie.bigResult.imdbRating}}</p>
-      <p>Metascore: {{movie.bigResult.Metascore}}</p>
-      <p>Plot: {{movie.bigResult.Plot}}</p>
+    <div class="main_result" ng-show="movie.bigResult">
+      <h2>{{movie.bigResult.title}} ({{movie.bigResult.release_date}})</h2>
+      <img ng-src=https://image.tmdb.org/t/p/w1280{{movie.bigResult.poster_path}}>
+      <p>Genre: {{movie.bigResult.genres[0].name}}</p>
+      <p>Vote Average: {{movie.bigResult.vote_average}}</p>
+      <p>Plot: {{movie.bigResult.overview}}</p>
     </div>
 
-    <div ng-show="movie.bigResult.Response == 'False'">
+    <div ng-show="movie.bigResult === null">
       <h3>Sorry, no results found</h3>
     </div>
 
-    <div ng-show="movie.result2 && movie.result2.Poster != 'N/A'">
+    <div class="secondary_results" ng-show="movie.result2">
       <h3>Did you mean..?</h3>
-      <img ng-src={{movie.result2.Poster}}
-      ng-click=movie.searchMovie(movie.result2.Title)>
+      <img ng-src=https://image.tmdb.org/t/p/w1280{{movie.result2.poster_path}}
+      ng-click=movie.searchMovie(movie.result2.title)>
       <img ng-show="movie.result3"
-      ng-src={{movie.result3.Poster}}
-      ng-click=movie.searchMovie(movie.result3.Title)>
-      <img ng-show="movie.result3" ng-src={{movie.result4.Poster}}
-      ng-click=movie.searchMovie(movie.result4.Title)>
+      ng-src=https://image.tmdb.org/t/p/w1280{{movie.result3.poster_path}}
+      ng-click=movie.searchMovie(movie.result3.title)>
+      <img ng-show="movie.result4" ng-src=https://image.tmdb.org/t/p/w1280{{movie.result4.poster_path}}
+      ng-click=movie.searchMovie(movie.result4.title)>
     </div>
   </div>
   <div class="movieReview" ng-show="reviews">
@@ -49,7 +47,7 @@
 
     <div class="movie_reviews_container">
       <h2>Posted Reviews</h2>
-      <div class="review" ng-repeat="review in rev.movieReviews | orderBy: '-updated_at' | limitTo: 4" ng-show="review.imdbID == movie.bigResult.imdbID">
+      <div class="review" ng-repeat="review in rev.movieReviews | orderBy: '-updated_at' | limitTo: 4" ng-show="review.imdbID == movie.bigResult.imdb_id">
         <h3>{{review.title}}</h3>
         <p>User Rating: {{review.rating}}</p>
         <p>Comments: {{review.comments}}</p>
